@@ -1,0 +1,1169 @@
+shift/reduce conflict in state 45 resolved as shift.
+
+
+Unused terminals:
+
+   COMMENT
+   TIPO
+   ID
+
+Grammar
+
+Rule 1     program -> INICIO estrutura FIM
+Rule 2     estrutura -> inst
+Rule 3     estrutura -> inst estrutura
+Rule 4     inst -> atrib
+Rule 5     inst -> entrada
+Rule 6     inst -> saida
+Rule 7     inst -> cond
+Rule 8     inst -> repeat
+Rule 9     atrib -> VAR ATT expre FL
+Rule 10    entrada -> LEIA AP VAR FP FL
+Rule 11    saida -> ESCREVA AP VAR FP FL
+Rule 12    cond -> SE AP VAR FP AF estrutura FF
+Rule 13    cond -> SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+Rule 14    cond -> SE AP VAR OP_REL VAR FP AF estrutura FF
+Rule 15    cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+Rule 16    cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF
+Rule 17    cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+Rule 18    repeat -> FOR AP NUMBER FP AF estrutura FF
+Rule 19    repeat -> FOR AP VAR FP AF estrutura FF
+Rule 20    expre -> expre OP_ARI expre
+Rule 21    expre -> AP expre FP
+Rule 22    expre -> VAR
+Rule 23    expre -> VALOR
+Rule 24    expre -> NUMBER
+Rule 25    empty -> <empty>
+
+Terminals, with rules where they appear
+
+AF                   : 12 13 13 14 15 15 16 17 17 18 19
+AP                   : 10 11 12 13 14 15 16 17 18 19 21
+ATT                  : 9
+COMMENT              : 
+ESCREVA              : 11
+FF                   : 12 13 13 14 15 15 16 17 17 18 19
+FIM                  : 1
+FL                   : 9 10 11
+FOR                  : 18 19
+FP                   : 10 11 12 13 14 15 16 17 18 19 21
+ID                   : 
+INICIO               : 1
+LEIA                 : 10
+NUMBER               : 18 24
+OP_ARI               : 20
+OP_LOG               : 16 17
+OP_REL               : 14 15
+SE                   : 12 13 14 15 16 17
+SENAO                : 13 15 17
+TIPO                 : 
+VALOR                : 23
+VAR                  : 9 10 11 12 13 14 14 15 15 16 16 17 17 19 22
+error                : 
+
+Nonterminals, with rules where they appear
+
+atrib                : 4
+cond                 : 7
+empty                : 
+entrada              : 5
+estrutura            : 1 3 12 13 13 14 15 15 16 17 17 18 19
+expre                : 9 20 20 21
+inst                 : 2 3
+program              : 0
+repeat               : 8
+saida                : 6
+
+
+Parsing method: LALR
+
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . INICIO estrutura FIM
+
+    INICIO          shift and go to state 2
+
+
+    program                        shift and go to state 1
+
+state 1
+
+    (0) S' -> program .
+
+
+
+
+state 2
+
+    (1) program -> INICIO . estrutura FIM
+    (2) estrutura -> . inst
+    (3) estrutura -> . inst estrutura
+    (4) inst -> . atrib
+    (5) inst -> . entrada
+    (6) inst -> . saida
+    (7) inst -> . cond
+    (8) inst -> . repeat
+    (9) atrib -> . VAR ATT expre FL
+    (10) entrada -> . LEIA AP VAR FP FL
+    (11) saida -> . ESCREVA AP VAR FP FL
+    (12) cond -> . SE AP VAR FP AF estrutura FF
+    (13) cond -> . SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+    (18) repeat -> . FOR AP NUMBER FP AF estrutura FF
+    (19) repeat -> . FOR AP VAR FP AF estrutura FF
+
+    VAR             shift and go to state 11
+    LEIA            shift and go to state 12
+    ESCREVA         shift and go to state 4
+    SE              shift and go to state 14
+    FOR             shift and go to state 9
+
+
+    atrib                          shift and go to state 3
+    estrutura                      shift and go to state 13
+    saida                          shift and go to state 6
+    repeat                         shift and go to state 8
+    inst                           shift and go to state 10
+    cond                           shift and go to state 5
+    entrada                        shift and go to state 7
+
+state 3
+
+    (4) inst -> atrib .
+
+    VAR             reduce using rule 4 (inst -> atrib .)
+    LEIA            reduce using rule 4 (inst -> atrib .)
+    ESCREVA         reduce using rule 4 (inst -> atrib .)
+    SE              reduce using rule 4 (inst -> atrib .)
+    FOR             reduce using rule 4 (inst -> atrib .)
+    FF              reduce using rule 4 (inst -> atrib .)
+    FIM             reduce using rule 4 (inst -> atrib .)
+
+
+
+state 4
+
+    (11) saida -> ESCREVA . AP VAR FP FL
+
+    AP              shift and go to state 15
+
+
+
+state 5
+
+    (7) inst -> cond .
+
+    VAR             reduce using rule 7 (inst -> cond .)
+    LEIA            reduce using rule 7 (inst -> cond .)
+    ESCREVA         reduce using rule 7 (inst -> cond .)
+    SE              reduce using rule 7 (inst -> cond .)
+    FOR             reduce using rule 7 (inst -> cond .)
+    FF              reduce using rule 7 (inst -> cond .)
+    FIM             reduce using rule 7 (inst -> cond .)
+
+
+
+state 6
+
+    (6) inst -> saida .
+
+    VAR             reduce using rule 6 (inst -> saida .)
+    LEIA            reduce using rule 6 (inst -> saida .)
+    ESCREVA         reduce using rule 6 (inst -> saida .)
+    SE              reduce using rule 6 (inst -> saida .)
+    FOR             reduce using rule 6 (inst -> saida .)
+    FF              reduce using rule 6 (inst -> saida .)
+    FIM             reduce using rule 6 (inst -> saida .)
+
+
+
+state 7
+
+    (5) inst -> entrada .
+
+    VAR             reduce using rule 5 (inst -> entrada .)
+    LEIA            reduce using rule 5 (inst -> entrada .)
+    ESCREVA         reduce using rule 5 (inst -> entrada .)
+    SE              reduce using rule 5 (inst -> entrada .)
+    FOR             reduce using rule 5 (inst -> entrada .)
+    FF              reduce using rule 5 (inst -> entrada .)
+    FIM             reduce using rule 5 (inst -> entrada .)
+
+
+
+state 8
+
+    (8) inst -> repeat .
+
+    VAR             reduce using rule 8 (inst -> repeat .)
+    LEIA            reduce using rule 8 (inst -> repeat .)
+    ESCREVA         reduce using rule 8 (inst -> repeat .)
+    SE              reduce using rule 8 (inst -> repeat .)
+    FOR             reduce using rule 8 (inst -> repeat .)
+    FF              reduce using rule 8 (inst -> repeat .)
+    FIM             reduce using rule 8 (inst -> repeat .)
+
+
+
+state 9
+
+    (18) repeat -> FOR . AP NUMBER FP AF estrutura FF
+    (19) repeat -> FOR . AP VAR FP AF estrutura FF
+
+    AP              shift and go to state 16
+
+
+
+state 10
+
+    (2) estrutura -> inst .
+    (3) estrutura -> inst . estrutura
+    (2) estrutura -> . inst
+    (3) estrutura -> . inst estrutura
+    (4) inst -> . atrib
+    (5) inst -> . entrada
+    (6) inst -> . saida
+    (7) inst -> . cond
+    (8) inst -> . repeat
+    (9) atrib -> . VAR ATT expre FL
+    (10) entrada -> . LEIA AP VAR FP FL
+    (11) saida -> . ESCREVA AP VAR FP FL
+    (12) cond -> . SE AP VAR FP AF estrutura FF
+    (13) cond -> . SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+    (18) repeat -> . FOR AP NUMBER FP AF estrutura FF
+    (19) repeat -> . FOR AP VAR FP AF estrutura FF
+
+    FF              reduce using rule 2 (estrutura -> inst .)
+    FIM             reduce using rule 2 (estrutura -> inst .)
+    VAR             shift and go to state 11
+    LEIA            shift and go to state 12
+    ESCREVA         shift and go to state 4
+    SE              shift and go to state 14
+    FOR             shift and go to state 9
+
+
+    atrib                          shift and go to state 3
+    inst                           shift and go to state 10
+    saida                          shift and go to state 6
+    repeat                         shift and go to state 8
+    estrutura                      shift and go to state 17
+    cond                           shift and go to state 5
+    entrada                        shift and go to state 7
+
+state 11
+
+    (9) atrib -> VAR . ATT expre FL
+
+    ATT             shift and go to state 18
+
+
+
+state 12
+
+    (10) entrada -> LEIA . AP VAR FP FL
+
+    AP              shift and go to state 19
+
+
+
+state 13
+
+    (1) program -> INICIO estrutura . FIM
+
+    FIM             shift and go to state 20
+
+
+
+state 14
+
+    (12) cond -> SE . AP VAR FP AF estrutura FF
+    (13) cond -> SE . AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> SE . AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> SE . AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> SE . AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> SE . AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+
+    AP              shift and go to state 21
+
+
+
+state 15
+
+    (11) saida -> ESCREVA AP . VAR FP FL
+
+    VAR             shift and go to state 22
+
+
+
+state 16
+
+    (18) repeat -> FOR AP . NUMBER FP AF estrutura FF
+    (19) repeat -> FOR AP . VAR FP AF estrutura FF
+
+    NUMBER          shift and go to state 23
+    VAR             shift and go to state 24
+
+
+
+state 17
+
+    (3) estrutura -> inst estrutura .
+
+    FF              reduce using rule 3 (estrutura -> inst estrutura .)
+    FIM             reduce using rule 3 (estrutura -> inst estrutura .)
+
+
+
+state 18
+
+    (9) atrib -> VAR ATT . expre FL
+    (20) expre -> . expre OP_ARI expre
+    (21) expre -> . AP expre FP
+    (22) expre -> . VAR
+    (23) expre -> . VALOR
+    (24) expre -> . NUMBER
+
+    AP              shift and go to state 27
+    VAR             shift and go to state 29
+    VALOR           shift and go to state 28
+    NUMBER          shift and go to state 26
+
+
+    expre                          shift and go to state 25
+
+state 19
+
+    (10) entrada -> LEIA AP . VAR FP FL
+
+    VAR             shift and go to state 30
+
+
+
+state 20
+
+    (1) program -> INICIO estrutura FIM .
+
+    $end            reduce using rule 1 (program -> INICIO estrutura FIM .)
+
+
+
+state 21
+
+    (12) cond -> SE AP . VAR FP AF estrutura FF
+    (13) cond -> SE AP . VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> SE AP . VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> SE AP . VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> SE AP . VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> SE AP . VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+
+    VAR             shift and go to state 31
+
+
+
+state 22
+
+    (11) saida -> ESCREVA AP VAR . FP FL
+
+    FP              shift and go to state 32
+
+
+
+state 23
+
+    (18) repeat -> FOR AP NUMBER . FP AF estrutura FF
+
+    FP              shift and go to state 33
+
+
+
+state 24
+
+    (19) repeat -> FOR AP VAR . FP AF estrutura FF
+
+    FP              shift and go to state 34
+
+
+
+state 25
+
+    (9) atrib -> VAR ATT expre . FL
+    (20) expre -> expre . OP_ARI expre
+
+    FL              shift and go to state 36
+    OP_ARI          shift and go to state 35
+
+
+
+state 26
+
+    (24) expre -> NUMBER .
+
+    FL              reduce using rule 24 (expre -> NUMBER .)
+    OP_ARI          reduce using rule 24 (expre -> NUMBER .)
+    FP              reduce using rule 24 (expre -> NUMBER .)
+
+
+
+state 27
+
+    (21) expre -> AP . expre FP
+    (20) expre -> . expre OP_ARI expre
+    (21) expre -> . AP expre FP
+    (22) expre -> . VAR
+    (23) expre -> . VALOR
+    (24) expre -> . NUMBER
+
+    AP              shift and go to state 27
+    VAR             shift and go to state 29
+    VALOR           shift and go to state 28
+    NUMBER          shift and go to state 26
+
+
+    expre                          shift and go to state 37
+
+state 28
+
+    (23) expre -> VALOR .
+
+    FL              reduce using rule 23 (expre -> VALOR .)
+    OP_ARI          reduce using rule 23 (expre -> VALOR .)
+    FP              reduce using rule 23 (expre -> VALOR .)
+
+
+
+state 29
+
+    (22) expre -> VAR .
+
+    FL              reduce using rule 22 (expre -> VAR .)
+    OP_ARI          reduce using rule 22 (expre -> VAR .)
+    FP              reduce using rule 22 (expre -> VAR .)
+
+
+
+state 30
+
+    (10) entrada -> LEIA AP VAR . FP FL
+
+    FP              shift and go to state 38
+
+
+
+state 31
+
+    (12) cond -> SE AP VAR . FP AF estrutura FF
+    (13) cond -> SE AP VAR . FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> SE AP VAR . OP_REL VAR FP AF estrutura FF
+    (15) cond -> SE AP VAR . OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> SE AP VAR . OP_LOG VAR FP AF estrutura FF
+    (17) cond -> SE AP VAR . OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+
+    FP              shift and go to state 39
+    OP_REL          shift and go to state 40
+    OP_LOG          shift and go to state 41
+
+
+
+state 32
+
+    (11) saida -> ESCREVA AP VAR FP . FL
+
+    FL              shift and go to state 42
+
+
+
+state 33
+
+    (18) repeat -> FOR AP NUMBER FP . AF estrutura FF
+
+    AF              shift and go to state 43
+
+
+
+state 34
+
+    (19) repeat -> FOR AP VAR FP . AF estrutura FF
+
+    AF              shift and go to state 44
+
+
+
+state 35
+
+    (20) expre -> expre OP_ARI . expre
+    (20) expre -> . expre OP_ARI expre
+    (21) expre -> . AP expre FP
+    (22) expre -> . VAR
+    (23) expre -> . VALOR
+    (24) expre -> . NUMBER
+
+    AP              shift and go to state 27
+    VAR             shift and go to state 29
+    VALOR           shift and go to state 28
+    NUMBER          shift and go to state 26
+
+
+    expre                          shift and go to state 45
+
+state 36
+
+    (9) atrib -> VAR ATT expre FL .
+
+    VAR             reduce using rule 9 (atrib -> VAR ATT expre FL .)
+    LEIA            reduce using rule 9 (atrib -> VAR ATT expre FL .)
+    ESCREVA         reduce using rule 9 (atrib -> VAR ATT expre FL .)
+    SE              reduce using rule 9 (atrib -> VAR ATT expre FL .)
+    FOR             reduce using rule 9 (atrib -> VAR ATT expre FL .)
+    FF              reduce using rule 9 (atrib -> VAR ATT expre FL .)
+    FIM             reduce using rule 9 (atrib -> VAR ATT expre FL .)
+
+
+
+state 37
+
+    (21) expre -> AP expre . FP
+    (20) expre -> expre . OP_ARI expre
+
+    FP              shift and go to state 46
+    OP_ARI          shift and go to state 35
+
+
+
+state 38
+
+    (10) entrada -> LEIA AP VAR FP . FL
+
+    FL              shift and go to state 47
+
+
+
+state 39
+
+    (12) cond -> SE AP VAR FP . AF estrutura FF
+    (13) cond -> SE AP VAR FP . AF estrutura FF SENAO AF estrutura FF
+
+    AF              shift and go to state 48
+
+
+
+state 40
+
+    (14) cond -> SE AP VAR OP_REL . VAR FP AF estrutura FF
+    (15) cond -> SE AP VAR OP_REL . VAR FP AF estrutura FF SENAO AF estrutura FF
+
+    VAR             shift and go to state 49
+
+
+
+state 41
+
+    (16) cond -> SE AP VAR OP_LOG . VAR FP AF estrutura FF
+    (17) cond -> SE AP VAR OP_LOG . VAR FP AF estrutura FF SENAO AF estrutura FF
+
+    VAR             shift and go to state 50
+
+
+
+state 42
+
+    (11) saida -> ESCREVA AP VAR FP FL .
+
+    VAR             reduce using rule 11 (saida -> ESCREVA AP VAR FP FL .)
+    LEIA            reduce using rule 11 (saida -> ESCREVA AP VAR FP FL .)
+    ESCREVA         reduce using rule 11 (saida -> ESCREVA AP VAR FP FL .)
+    SE              reduce using rule 11 (saida -> ESCREVA AP VAR FP FL .)
+    FOR             reduce using rule 11 (saida -> ESCREVA AP VAR FP FL .)
+    FF              reduce using rule 11 (saida -> ESCREVA AP VAR FP FL .)
+    FIM             reduce using rule 11 (saida -> ESCREVA AP VAR FP FL .)
+
+
+
+state 43
+
+    (18) repeat -> FOR AP NUMBER FP AF . estrutura FF
+    (2) estrutura -> . inst
+    (3) estrutura -> . inst estrutura
+    (4) inst -> . atrib
+    (5) inst -> . entrada
+    (6) inst -> . saida
+    (7) inst -> . cond
+    (8) inst -> . repeat
+    (9) atrib -> . VAR ATT expre FL
+    (10) entrada -> . LEIA AP VAR FP FL
+    (11) saida -> . ESCREVA AP VAR FP FL
+    (12) cond -> . SE AP VAR FP AF estrutura FF
+    (13) cond -> . SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+    (18) repeat -> . FOR AP NUMBER FP AF estrutura FF
+    (19) repeat -> . FOR AP VAR FP AF estrutura FF
+
+    VAR             shift and go to state 11
+    LEIA            shift and go to state 12
+    ESCREVA         shift and go to state 4
+    SE              shift and go to state 14
+    FOR             shift and go to state 9
+
+
+    atrib                          shift and go to state 3
+    estrutura                      shift and go to state 51
+    saida                          shift and go to state 6
+    repeat                         shift and go to state 8
+    inst                           shift and go to state 10
+    cond                           shift and go to state 5
+    entrada                        shift and go to state 7
+
+state 44
+
+    (19) repeat -> FOR AP VAR FP AF . estrutura FF
+    (2) estrutura -> . inst
+    (3) estrutura -> . inst estrutura
+    (4) inst -> . atrib
+    (5) inst -> . entrada
+    (6) inst -> . saida
+    (7) inst -> . cond
+    (8) inst -> . repeat
+    (9) atrib -> . VAR ATT expre FL
+    (10) entrada -> . LEIA AP VAR FP FL
+    (11) saida -> . ESCREVA AP VAR FP FL
+    (12) cond -> . SE AP VAR FP AF estrutura FF
+    (13) cond -> . SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+    (18) repeat -> . FOR AP NUMBER FP AF estrutura FF
+    (19) repeat -> . FOR AP VAR FP AF estrutura FF
+
+    VAR             shift and go to state 11
+    LEIA            shift and go to state 12
+    ESCREVA         shift and go to state 4
+    SE              shift and go to state 14
+    FOR             shift and go to state 9
+
+
+    atrib                          shift and go to state 3
+    estrutura                      shift and go to state 52
+    saida                          shift and go to state 6
+    repeat                         shift and go to state 8
+    inst                           shift and go to state 10
+    cond                           shift and go to state 5
+    entrada                        shift and go to state 7
+
+state 45
+
+    (20) expre -> expre OP_ARI expre .
+    (20) expre -> expre . OP_ARI expre
+
+  ! shift/reduce conflict for OP_ARI resolved as shift.
+    FL              reduce using rule 20 (expre -> expre OP_ARI expre .)
+    FP              reduce using rule 20 (expre -> expre OP_ARI expre .)
+    OP_ARI          shift and go to state 35
+
+  ! OP_ARI          [ reduce using rule 20 (expre -> expre OP_ARI expre .) ]
+
+
+state 46
+
+    (21) expre -> AP expre FP .
+
+    FL              reduce using rule 21 (expre -> AP expre FP .)
+    OP_ARI          reduce using rule 21 (expre -> AP expre FP .)
+    FP              reduce using rule 21 (expre -> AP expre FP .)
+
+
+
+state 47
+
+    (10) entrada -> LEIA AP VAR FP FL .
+
+    VAR             reduce using rule 10 (entrada -> LEIA AP VAR FP FL .)
+    LEIA            reduce using rule 10 (entrada -> LEIA AP VAR FP FL .)
+    ESCREVA         reduce using rule 10 (entrada -> LEIA AP VAR FP FL .)
+    SE              reduce using rule 10 (entrada -> LEIA AP VAR FP FL .)
+    FOR             reduce using rule 10 (entrada -> LEIA AP VAR FP FL .)
+    FF              reduce using rule 10 (entrada -> LEIA AP VAR FP FL .)
+    FIM             reduce using rule 10 (entrada -> LEIA AP VAR FP FL .)
+
+
+
+state 48
+
+    (12) cond -> SE AP VAR FP AF . estrutura FF
+    (13) cond -> SE AP VAR FP AF . estrutura FF SENAO AF estrutura FF
+    (2) estrutura -> . inst
+    (3) estrutura -> . inst estrutura
+    (4) inst -> . atrib
+    (5) inst -> . entrada
+    (6) inst -> . saida
+    (7) inst -> . cond
+    (8) inst -> . repeat
+    (9) atrib -> . VAR ATT expre FL
+    (10) entrada -> . LEIA AP VAR FP FL
+    (11) saida -> . ESCREVA AP VAR FP FL
+    (12) cond -> . SE AP VAR FP AF estrutura FF
+    (13) cond -> . SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+    (18) repeat -> . FOR AP NUMBER FP AF estrutura FF
+    (19) repeat -> . FOR AP VAR FP AF estrutura FF
+
+    VAR             shift and go to state 11
+    LEIA            shift and go to state 12
+    ESCREVA         shift and go to state 4
+    SE              shift and go to state 14
+    FOR             shift and go to state 9
+
+
+    atrib                          shift and go to state 3
+    estrutura                      shift and go to state 53
+    saida                          shift and go to state 6
+    repeat                         shift and go to state 8
+    inst                           shift and go to state 10
+    cond                           shift and go to state 5
+    entrada                        shift and go to state 7
+
+state 49
+
+    (14) cond -> SE AP VAR OP_REL VAR . FP AF estrutura FF
+    (15) cond -> SE AP VAR OP_REL VAR . FP AF estrutura FF SENAO AF estrutura FF
+
+    FP              shift and go to state 54
+
+
+
+state 50
+
+    (16) cond -> SE AP VAR OP_LOG VAR . FP AF estrutura FF
+    (17) cond -> SE AP VAR OP_LOG VAR . FP AF estrutura FF SENAO AF estrutura FF
+
+    FP              shift and go to state 55
+
+
+
+state 51
+
+    (18) repeat -> FOR AP NUMBER FP AF estrutura . FF
+
+    FF              shift and go to state 56
+
+
+
+state 52
+
+    (19) repeat -> FOR AP VAR FP AF estrutura . FF
+
+    FF              shift and go to state 57
+
+
+
+state 53
+
+    (12) cond -> SE AP VAR FP AF estrutura . FF
+    (13) cond -> SE AP VAR FP AF estrutura . FF SENAO AF estrutura FF
+
+    FF              shift and go to state 58
+
+
+
+state 54
+
+    (14) cond -> SE AP VAR OP_REL VAR FP . AF estrutura FF
+    (15) cond -> SE AP VAR OP_REL VAR FP . AF estrutura FF SENAO AF estrutura FF
+
+    AF              shift and go to state 59
+
+
+
+state 55
+
+    (16) cond -> SE AP VAR OP_LOG VAR FP . AF estrutura FF
+    (17) cond -> SE AP VAR OP_LOG VAR FP . AF estrutura FF SENAO AF estrutura FF
+
+    AF              shift and go to state 60
+
+
+
+state 56
+
+    (18) repeat -> FOR AP NUMBER FP AF estrutura FF .
+
+    VAR             reduce using rule 18 (repeat -> FOR AP NUMBER FP AF estrutura FF .)
+    LEIA            reduce using rule 18 (repeat -> FOR AP NUMBER FP AF estrutura FF .)
+    ESCREVA         reduce using rule 18 (repeat -> FOR AP NUMBER FP AF estrutura FF .)
+    SE              reduce using rule 18 (repeat -> FOR AP NUMBER FP AF estrutura FF .)
+    FOR             reduce using rule 18 (repeat -> FOR AP NUMBER FP AF estrutura FF .)
+    FF              reduce using rule 18 (repeat -> FOR AP NUMBER FP AF estrutura FF .)
+    FIM             reduce using rule 18 (repeat -> FOR AP NUMBER FP AF estrutura FF .)
+
+
+
+state 57
+
+    (19) repeat -> FOR AP VAR FP AF estrutura FF .
+
+    VAR             reduce using rule 19 (repeat -> FOR AP VAR FP AF estrutura FF .)
+    LEIA            reduce using rule 19 (repeat -> FOR AP VAR FP AF estrutura FF .)
+    ESCREVA         reduce using rule 19 (repeat -> FOR AP VAR FP AF estrutura FF .)
+    SE              reduce using rule 19 (repeat -> FOR AP VAR FP AF estrutura FF .)
+    FOR             reduce using rule 19 (repeat -> FOR AP VAR FP AF estrutura FF .)
+    FF              reduce using rule 19 (repeat -> FOR AP VAR FP AF estrutura FF .)
+    FIM             reduce using rule 19 (repeat -> FOR AP VAR FP AF estrutura FF .)
+
+
+
+state 58
+
+    (12) cond -> SE AP VAR FP AF estrutura FF .
+    (13) cond -> SE AP VAR FP AF estrutura FF . SENAO AF estrutura FF
+
+    VAR             reduce using rule 12 (cond -> SE AP VAR FP AF estrutura FF .)
+    LEIA            reduce using rule 12 (cond -> SE AP VAR FP AF estrutura FF .)
+    ESCREVA         reduce using rule 12 (cond -> SE AP VAR FP AF estrutura FF .)
+    SE              reduce using rule 12 (cond -> SE AP VAR FP AF estrutura FF .)
+    FOR             reduce using rule 12 (cond -> SE AP VAR FP AF estrutura FF .)
+    FF              reduce using rule 12 (cond -> SE AP VAR FP AF estrutura FF .)
+    FIM             reduce using rule 12 (cond -> SE AP VAR FP AF estrutura FF .)
+    SENAO           shift and go to state 61
+
+
+
+state 59
+
+    (14) cond -> SE AP VAR OP_REL VAR FP AF . estrutura FF
+    (15) cond -> SE AP VAR OP_REL VAR FP AF . estrutura FF SENAO AF estrutura FF
+    (2) estrutura -> . inst
+    (3) estrutura -> . inst estrutura
+    (4) inst -> . atrib
+    (5) inst -> . entrada
+    (6) inst -> . saida
+    (7) inst -> . cond
+    (8) inst -> . repeat
+    (9) atrib -> . VAR ATT expre FL
+    (10) entrada -> . LEIA AP VAR FP FL
+    (11) saida -> . ESCREVA AP VAR FP FL
+    (12) cond -> . SE AP VAR FP AF estrutura FF
+    (13) cond -> . SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+    (18) repeat -> . FOR AP NUMBER FP AF estrutura FF
+    (19) repeat -> . FOR AP VAR FP AF estrutura FF
+
+    VAR             shift and go to state 11
+    LEIA            shift and go to state 12
+    ESCREVA         shift and go to state 4
+    SE              shift and go to state 14
+    FOR             shift and go to state 9
+
+
+    atrib                          shift and go to state 3
+    estrutura                      shift and go to state 62
+    saida                          shift and go to state 6
+    repeat                         shift and go to state 8
+    inst                           shift and go to state 10
+    cond                           shift and go to state 5
+    entrada                        shift and go to state 7
+
+state 60
+
+    (16) cond -> SE AP VAR OP_LOG VAR FP AF . estrutura FF
+    (17) cond -> SE AP VAR OP_LOG VAR FP AF . estrutura FF SENAO AF estrutura FF
+    (2) estrutura -> . inst
+    (3) estrutura -> . inst estrutura
+    (4) inst -> . atrib
+    (5) inst -> . entrada
+    (6) inst -> . saida
+    (7) inst -> . cond
+    (8) inst -> . repeat
+    (9) atrib -> . VAR ATT expre FL
+    (10) entrada -> . LEIA AP VAR FP FL
+    (11) saida -> . ESCREVA AP VAR FP FL
+    (12) cond -> . SE AP VAR FP AF estrutura FF
+    (13) cond -> . SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+    (18) repeat -> . FOR AP NUMBER FP AF estrutura FF
+    (19) repeat -> . FOR AP VAR FP AF estrutura FF
+
+    VAR             shift and go to state 11
+    LEIA            shift and go to state 12
+    ESCREVA         shift and go to state 4
+    SE              shift and go to state 14
+    FOR             shift and go to state 9
+
+
+    atrib                          shift and go to state 3
+    estrutura                      shift and go to state 63
+    saida                          shift and go to state 6
+    repeat                         shift and go to state 8
+    inst                           shift and go to state 10
+    cond                           shift and go to state 5
+    entrada                        shift and go to state 7
+
+state 61
+
+    (13) cond -> SE AP VAR FP AF estrutura FF SENAO . AF estrutura FF
+
+    AF              shift and go to state 64
+
+
+
+state 62
+
+    (14) cond -> SE AP VAR OP_REL VAR FP AF estrutura . FF
+    (15) cond -> SE AP VAR OP_REL VAR FP AF estrutura . FF SENAO AF estrutura FF
+
+    FF              shift and go to state 65
+
+
+
+state 63
+
+    (16) cond -> SE AP VAR OP_LOG VAR FP AF estrutura . FF
+    (17) cond -> SE AP VAR OP_LOG VAR FP AF estrutura . FF SENAO AF estrutura FF
+
+    FF              shift and go to state 66
+
+
+
+state 64
+
+    (13) cond -> SE AP VAR FP AF estrutura FF SENAO AF . estrutura FF
+    (2) estrutura -> . inst
+    (3) estrutura -> . inst estrutura
+    (4) inst -> . atrib
+    (5) inst -> . entrada
+    (6) inst -> . saida
+    (7) inst -> . cond
+    (8) inst -> . repeat
+    (9) atrib -> . VAR ATT expre FL
+    (10) entrada -> . LEIA AP VAR FP FL
+    (11) saida -> . ESCREVA AP VAR FP FL
+    (12) cond -> . SE AP VAR FP AF estrutura FF
+    (13) cond -> . SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+    (18) repeat -> . FOR AP NUMBER FP AF estrutura FF
+    (19) repeat -> . FOR AP VAR FP AF estrutura FF
+
+    VAR             shift and go to state 11
+    LEIA            shift and go to state 12
+    ESCREVA         shift and go to state 4
+    SE              shift and go to state 14
+    FOR             shift and go to state 9
+
+
+    atrib                          shift and go to state 3
+    estrutura                      shift and go to state 67
+    saida                          shift and go to state 6
+    repeat                         shift and go to state 8
+    inst                           shift and go to state 10
+    cond                           shift and go to state 5
+    entrada                        shift and go to state 7
+
+state 65
+
+    (14) cond -> SE AP VAR OP_REL VAR FP AF estrutura FF .
+    (15) cond -> SE AP VAR OP_REL VAR FP AF estrutura FF . SENAO AF estrutura FF
+
+    VAR             reduce using rule 14 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF .)
+    LEIA            reduce using rule 14 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF .)
+    ESCREVA         reduce using rule 14 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF .)
+    SE              reduce using rule 14 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF .)
+    FOR             reduce using rule 14 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF .)
+    FF              reduce using rule 14 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF .)
+    FIM             reduce using rule 14 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF .)
+    SENAO           shift and go to state 68
+
+
+
+state 66
+
+    (16) cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF .
+    (17) cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF . SENAO AF estrutura FF
+
+    VAR             reduce using rule 16 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF .)
+    LEIA            reduce using rule 16 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF .)
+    ESCREVA         reduce using rule 16 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF .)
+    SE              reduce using rule 16 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF .)
+    FOR             reduce using rule 16 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF .)
+    FF              reduce using rule 16 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF .)
+    FIM             reduce using rule 16 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF .)
+    SENAO           shift and go to state 69
+
+
+
+state 67
+
+    (13) cond -> SE AP VAR FP AF estrutura FF SENAO AF estrutura . FF
+
+    FF              shift and go to state 70
+
+
+
+state 68
+
+    (15) cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO . AF estrutura FF
+
+    AF              shift and go to state 71
+
+
+
+state 69
+
+    (17) cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO . AF estrutura FF
+
+    AF              shift and go to state 72
+
+
+
+state 70
+
+    (13) cond -> SE AP VAR FP AF estrutura FF SENAO AF estrutura FF .
+
+    VAR             reduce using rule 13 (cond -> SE AP VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    LEIA            reduce using rule 13 (cond -> SE AP VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    ESCREVA         reduce using rule 13 (cond -> SE AP VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    SE              reduce using rule 13 (cond -> SE AP VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    FOR             reduce using rule 13 (cond -> SE AP VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    FF              reduce using rule 13 (cond -> SE AP VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    FIM             reduce using rule 13 (cond -> SE AP VAR FP AF estrutura FF SENAO AF estrutura FF .)
+
+
+
+state 71
+
+    (15) cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF . estrutura FF
+    (2) estrutura -> . inst
+    (3) estrutura -> . inst estrutura
+    (4) inst -> . atrib
+    (5) inst -> . entrada
+    (6) inst -> . saida
+    (7) inst -> . cond
+    (8) inst -> . repeat
+    (9) atrib -> . VAR ATT expre FL
+    (10) entrada -> . LEIA AP VAR FP FL
+    (11) saida -> . ESCREVA AP VAR FP FL
+    (12) cond -> . SE AP VAR FP AF estrutura FF
+    (13) cond -> . SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+    (18) repeat -> . FOR AP NUMBER FP AF estrutura FF
+    (19) repeat -> . FOR AP VAR FP AF estrutura FF
+
+    VAR             shift and go to state 11
+    LEIA            shift and go to state 12
+    ESCREVA         shift and go to state 4
+    SE              shift and go to state 14
+    FOR             shift and go to state 9
+
+
+    atrib                          shift and go to state 3
+    estrutura                      shift and go to state 73
+    saida                          shift and go to state 6
+    repeat                         shift and go to state 8
+    inst                           shift and go to state 10
+    cond                           shift and go to state 5
+    entrada                        shift and go to state 7
+
+state 72
+
+    (17) cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF . estrutura FF
+    (2) estrutura -> . inst
+    (3) estrutura -> . inst estrutura
+    (4) inst -> . atrib
+    (5) inst -> . entrada
+    (6) inst -> . saida
+    (7) inst -> . cond
+    (8) inst -> . repeat
+    (9) atrib -> . VAR ATT expre FL
+    (10) entrada -> . LEIA AP VAR FP FL
+    (11) saida -> . ESCREVA AP VAR FP FL
+    (12) cond -> . SE AP VAR FP AF estrutura FF
+    (13) cond -> . SE AP VAR FP AF estrutura FF SENAO AF estrutura FF
+    (14) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF
+    (15) cond -> . SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF
+    (16) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF
+    (17) cond -> . SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF
+    (18) repeat -> . FOR AP NUMBER FP AF estrutura FF
+    (19) repeat -> . FOR AP VAR FP AF estrutura FF
+
+    VAR             shift and go to state 11
+    LEIA            shift and go to state 12
+    ESCREVA         shift and go to state 4
+    SE              shift and go to state 14
+    FOR             shift and go to state 9
+
+
+    atrib                          shift and go to state 3
+    estrutura                      shift and go to state 74
+    saida                          shift and go to state 6
+    repeat                         shift and go to state 8
+    inst                           shift and go to state 10
+    cond                           shift and go to state 5
+    entrada                        shift and go to state 7
+
+state 73
+
+    (15) cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura . FF
+
+    FF              shift and go to state 75
+
+
+
+state 74
+
+    (17) cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura . FF
+
+    FF              shift and go to state 76
+
+
+
+state 75
+
+    (15) cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF .
+
+    VAR             reduce using rule 15 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    LEIA            reduce using rule 15 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    ESCREVA         reduce using rule 15 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    SE              reduce using rule 15 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    FOR             reduce using rule 15 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    FF              reduce using rule 15 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    FIM             reduce using rule 15 (cond -> SE AP VAR OP_REL VAR FP AF estrutura FF SENAO AF estrutura FF .)
+
+
+
+state 76
+
+    (17) cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF .
+
+    VAR             reduce using rule 17 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    LEIA            reduce using rule 17 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    ESCREVA         reduce using rule 17 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    SE              reduce using rule 17 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    FOR             reduce using rule 17 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    FF              reduce using rule 17 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF .)
+    FIM             reduce using rule 17 (cond -> SE AP VAR OP_LOG VAR FP AF estrutura FF SENAO AF estrutura FF .)
+
+

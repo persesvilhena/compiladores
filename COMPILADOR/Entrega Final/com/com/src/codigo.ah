@@ -1,0 +1,24 @@
+%% valor zero para desligado%%
+%% valor diferente de zero para ligado%%
+
+auto %%INICIO%%
+
+    #lampada = 0; 
+    #arcondicionado = 0;
+    #tv = 0;
+    #tempArcondicionado = 18; %% temperatura do ar condicionado%%
+    leia(#entrada);
+    
+    se(#entrada==#tv)[
+        #lampada = 1;
+    ]
+    se(#entrada)[
+        #tv = 1;
+    ]
+    se(#entrada)[
+        #arcondicionado = 1;
+        leia(#temp);
+escreva(#temp);
+        #tempArcondicionado = #temp;
+    ]
+house %%FIM%%

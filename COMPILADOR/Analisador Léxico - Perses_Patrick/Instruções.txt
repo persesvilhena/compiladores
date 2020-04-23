@@ -1,0 +1,9 @@
+AutoHouse - Automoção Residencial
+Perses; Patrick.
+Desenvolvida em PHP
+Para executar extraia e abra a pasta "com" com o php;
+No canto superior esquerdo acesse "Analisador Léxico";
+Para testar o Analisador Léxico digite seu código no campo "Código"(Arquivo com código exemplo em ProgramaExemplo.txt);
+Em seguida clique em "Submeter";
+A primeira tabela será a tabela de Tokens reconhecidos e a segunda em cor vermelha será a dos erros encontrados;
+Para ter acesso ao código, com seu gerenciador de arquivos, acesse "com\application\views\painel\lex.php";
